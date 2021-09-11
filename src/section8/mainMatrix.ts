@@ -1,6 +1,6 @@
-type Matrix = number[][]
+export type Matrix = number[][]
 
-type MatrixProtocol = {
+export type MatrixProtocol = {
   determinant: {
     in: [Matrix]
     out: number
@@ -15,7 +15,7 @@ type MatrixProtocol = {
   }
 }
 
-type Protocol = {
+export type Protocol = {
   [command: string]: {
     in: unknown[]
     out: unknown

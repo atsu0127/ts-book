@@ -1,15 +1,11 @@
-type Data<
-  P extends Protocol,
-  C extends keyof P = keyof P // 初期値っぽい
-> = C extends C
-  ? {command: C, args: P[C]['in']}
-  : never
+import { MatrixProtocol, Matrix } from "./mainMatrix"
+import { Data } from './ChildThread'
 
 onmessage = ({data}) => {
   postMessage(handle(data))
 }
 
-function handle(data: Data<MatrixProtocol>): MatrixProtocol[typeof data.command]['out'] {
+export function handle(data: Data<MatrixProtocol>): MatrixProtocol[typeof data.command]['out'] {
   switch (data.command) {
     case 'determinant':
       return calcDeterminant(...data.args)
