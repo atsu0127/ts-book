@@ -122,3 +122,4 @@ typings/
 .dynamodb/
 
 dist
+!section12/dist
